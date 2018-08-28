@@ -1,5 +1,3 @@
-
-
 const autoprefixer = require('autoprefixer');
 const path = require('path');
 const webpack = require('webpack');
@@ -187,6 +185,16 @@ module.exports = {
                       ],
                       flexbox: 'no-2009'
                     })
+                  ]
+                }
+              },
+              {
+                loader: 'sass-loader',
+                options: {
+                  sourceMap: false,
+                  includePaths: [
+                    paths.govukFrontendToolkitStylesheets,
+                    paths.govukElementsSass
                   ]
                 }
               }
