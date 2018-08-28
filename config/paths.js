@@ -1,4 +1,4 @@
-'use strict';
+
 
 const path = require('path');
 const fs = require('fs');
@@ -7,7 +7,8 @@ const url = require('url');
 // Make sure any symlinks in the project folder are resolved:
 // https://github.com/facebookincubator/create-react-app/issues/637
 const appDirectory = fs.realpathSync(process.cwd());
-const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
+const resolveApp = relativePath =>
+  path.resolve(appDirectory, relativePath);
 
 const envPublicUrl = process.env.PUBLIC_URL;
 
@@ -52,4 +53,13 @@ module.exports = {
   appNodeModules: resolveApp('node_modules'),
   publicUrl: getPublicUrl(resolveApp('package.json')),
   servedPath: getServedPath(resolveApp('package.json')),
+  platformCommonFrontend: resolveApp(
+    'node_modules/platform-common-frontend'
+  ),
+  govukFrontendToolkitStylesheets: resolveApp(
+    'node_modules/govuk_frontend_toolkit/stylesheets'
+  ),
+  govukElementsSass: resolveApp(
+    'node_modules/govuk-elements-sass/public/sass'
+  )
 };
